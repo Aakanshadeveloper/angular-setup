@@ -1,0 +1,9 @@
+
+<nav class="sidebar">
+  <ul>
+    <li (click)="setActiveComponent('userRegistor')" [class.active]="currentActive === 'userRegistor'">Register form</li>
+    <li (click)="setActiveComponent('listInfo')" [class.active]="currentActive === 'listInfo'">List</li>
+    <li (click)="logout()" [routerLink]="" [class.active]="currentActive === 'logout'">Logout</li>
+
+  </ul>
+</nav>

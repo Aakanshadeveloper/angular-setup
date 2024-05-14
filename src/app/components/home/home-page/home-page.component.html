@@ -1,0 +1,12 @@
+<div class="container">
+  <app-sidebar></app-sidebar>
+  <div class="main-content">
+<div *ngIf="pageType=='userRegistor'">
+  <app-register-form></app-register-form>
+</div>
+<div *ngIf="pageType=='listInfo'">
+  <app-list></app-list>
+</div>
+
+  </div>
+</div>

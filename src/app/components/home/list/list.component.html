@@ -1,0 +1,32 @@
+<div class="section">
+  <h2>List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th class="pe-3">Name</th>
+        <th class="pe-3">Email</th>
+        <th class="pe-3">Phone</th>
+        <th class="pe-3">City</th>
+        <th class="pe-3">Action</th>
+      </tr>
+    </thead>
+{{listData}}====
+    <tbody>
+
+      <tr *ngFor="let data of listData">
+        <td>
+          {{ data.userName }}
+        </td>
+        <td>
+          {{ data.email }}
+        </td>
+        <td>
+          {{ data.phoneNumber }}
+        </td>
+        <td>
+          {{ data.city }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

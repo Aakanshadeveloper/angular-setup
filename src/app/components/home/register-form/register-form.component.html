@@ -1,0 +1,31 @@
+<div class="section">
+<div>
+  <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+    <div class="form-group mt2">
+      <input type="email" id="email" placeholder="UserName" name="email" class="form-control" [(ngModel)]="model.userName" #userName="ngModel" required>
+      <div *ngIf="userName.invalid && (userName.dirty || userName.touched) && loginForm.submitted" class="text-danger">
+        <div *ngIf="userName.errors">Email is required.</div>
+     </div>
+</div>
+    <div class="form-group mt2">
+      <input type="email" id="email" placeholder="Email" name="email" class="form-control" [(ngModel)]="model.email" #email="ngModel" required>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+        <div *ngIf="email.errors">Email is required.</div>
+     </div>
+    </div>
+    <div class="form-group ">
+      <input type="text" id="phoneNumber" placeholder="Phone Number" name="phoneNumber" class="form-control" [(ngModel)]="model.phoneNumber" #phoneNumber="ngModel" required minlength="6">
+      <div *ngIf="phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)" class="text-danger">
+        <div *ngIf="phoneNumber.errors">Password is required.</div>
+      </div>
+    </div>
+    <div class="form-group ">
+      <input type="text" id="city" placeholder="city" name="city" class="form-control" [(ngModel)]="model.city" #city="ngModel" required>
+      <div *ngIf="city.invalid && (city.dirty || city.touched)" class="text-danger">
+        <div *ngIf="city.errors">confirmPassword is required.</div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary mt-4"  [disabled]="loginForm.invalid">Submit</button>
+  </form>
+</div>
+</div>
