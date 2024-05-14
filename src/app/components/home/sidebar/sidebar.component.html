@@ -1,9 +1,15 @@
 
 <nav class="sidebar">
   <ul>
-    <li (click)="setActiveComponent('userRegistor')" [class.active]="currentActive === 'userRegistor'">Register form</li>
-    <li (click)="setActiveComponent('listInfo')" [class.active]="currentActive === 'listInfo'">List</li>
-    <li (click)="logout()" [routerLink]="'/'" [class.active]="currentActive === 'logout'">Logout</li>
+    <li (click)="sendData('true')"
+    [ngClass]="{ active: activeHeader === 'userRegistor' }"
+    routerLink="/dashoard/userRegistor">Register form</li>
+
+    <li (click)="sendData('true')"
+    [ngClass]="{ active: activeHeader === 'list' }"
+    routerLink="/dashoard/listInfo">List</li>
+
+    <li (click)="logout()" [routerLink]="'/'">Logout</li>
 
   </ul>
 </nav>

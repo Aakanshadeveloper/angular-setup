@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,EventEmitter, Output } from '@angular/core';
 import { DashboardService } from '../service/dashboard.service';
 
 @Component({
@@ -8,10 +8,13 @@ import { DashboardService } from '../service/dashboard.service';
 })
 export class SidebarComponent {
   currentActive: any;
+  activeHeader: any;
+  @Output('selectionManu') eventEmitter: EventEmitter<any> =
+    new EventEmitter<any>();
   constructor(private service: DashboardService) {
-    this.service.currentActiveComponent.subscribe(
-      (component) => (this.currentActive = component)
-    );
+    this.service.currentActiveComponent.subscribe((data) => {
+      this.activeHeader = data?.activePage;
+    });
   }
 
   setActiveComponent(component: string) {
@@ -19,8 +22,13 @@ export class SidebarComponent {
     this.service.setActiveComponent(component);
   }
   logout() {
-localStorage.removeItem('userData')
-localStorage.removeItem('listData')
-
+    localStorage.removeItem('userData');
+  }
+  /**
+   * This function is for send Status on home module
+   * @param data
+   */
+  sendData(data: any) {
+    this.eventEmitter.emit({ data: data });
   }
 }

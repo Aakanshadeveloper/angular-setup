@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
-
+import { DashboardService } from '../service/dashboard.service';
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
@@ -9,22 +9,23 @@ import { Router,ActivatedRoute } from '@angular/router';
 export class RegisterFormComponent {
   listData: any = [];
   pageType:any
-  constructor(public router: Router,public route: ActivatedRoute) {
+  constructor(public router: Router,public route: ActivatedRoute,public dataService: DashboardService) {
   }
   model: any = {};
   ngOnInit() {
+      this.dataService.setActiveComponent({
+        activePage: 'userRegistor',
+        pageRoute: 'abc',
+        pageName: 'Detail',
+        detail: false,
+      });
+  
     this.pageType = this.route.snapshot.queryParamMap.get('type')
     let editData:any = (this.route.snapshot.queryParamMap.get('data'))
     if(editData){
       this.model = JSON.parse(editData)
     }
-    // if(editData){
-    //   this.model.userName = this.model?.userName
-    //   this.model.email = this.model?.email
-    //   this.model.phoneNumber = this.model?.phoneNumber
-    //   this.model.city = this.model?.city
-    //   console.log( this.model,' this.route.snapshot.queryParamMap.get')
-    //   }
+
     }
   onSubmit(form: any) {
     console.log(form.valid, 'form.valid');

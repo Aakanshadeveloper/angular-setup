@@ -14,6 +14,19 @@ this.service.currentActiveComponent.subscribe(component => this.pageType = compo
 console.log(this.pageType,'==============')
 
 }
+activeHeader:any
   name:any
   pageType:any;
+
+  ngAfterViewInit() {
+    this.service.currentActiveComponent.subscribe((data: any) => {
+      console.log(data,'data')
+    //   if (data?.activePage != 'undefined') {
+    //     setTimeout(() => {
+    //       this.activeHeader = data?.activePage;
+    //     }, 100);
+    //   }
+    });
+
+  }
 }

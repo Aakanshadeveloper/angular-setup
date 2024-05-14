@@ -15,13 +15,13 @@ margin-top: 10px;
   cursor: pointer;
 }
 
-.sidebar ul li:hover {
-  background-color: #555;
-}
+// .sidebar ul li:hover {
+//   background-color: #555;
+// }
 
-.sidebar ul li.active {
-  background-color: #777;
-}
+// .sidebar ul li.active {
+//   background-color: #777;
+// }
 
 /* app.component.css */
 .container {
@@ -31,4 +31,7 @@ margin-top: 10px;
 .main-content {
   flex-grow: 1;
   padding: 20px;
+}
+.active{
+    background-color: #777;
 }
