@@ -10,21 +10,23 @@
         <th class="pe-3">Action</th>
       </tr>
     </thead>
-{{listData}}====
     <tbody>
 
-      <tr *ngFor="let data of listData">
-        <td>
-          {{ data.userName }}
+      <tr *ngFor="let data of listData; let i=index">
+        <td class="pe-3">
+          {{ data?.userName? data?.userName:"N/A" }}
         </td>
-        <td>
+        <td class="pe-3">
           {{ data.email }}
         </td>
-        <td>
+        <td class="pe-3">
           {{ data.phoneNumber }}
         </td>
-        <td>
+        <td class="pe-3">
           {{ data.city }}
+        </td>
+        <td class="pe-3">
+         <span class="pointer" (click)="redirectToEdit(data)">Edit</span>  <span class="ps-4 pointer"  (click)="deleteRecord(data,i)">Delete</span>
         </td>
       </tr>
     </tbody>

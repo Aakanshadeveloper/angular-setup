@@ -2,7 +2,7 @@
 <div>
   <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
     <div class="form-group mt2">
-      <input type="email" id="email" placeholder="UserName" name="email" class="form-control" [(ngModel)]="model.userName" #userName="ngModel" required>
+      <input type="UserName" id="UserName" placeholder="UserName" name="UserName" class="form-control" [(ngModel)]="model.userName" #userName="ngModel" required>
       <div *ngIf="userName.invalid && (userName.dirty || userName.touched) && loginForm.submitted" class="text-danger">
         <div *ngIf="userName.errors">Email is required.</div>
      </div>
@@ -25,7 +25,7 @@
         <div *ngIf="city.errors">confirmPassword is required.</div>
       </div>
     </div>
-    <button type="submit" class="btn btn-primary mt-4"  [disabled]="loginForm.invalid">Submit</button>
+    <button type="submit" class="btn btn-primary mt-4"  [disabled]="loginForm.invalid">{{pageType=='edit'?'Edit':'Submit'}}</button>
   </form>
 </div>
 </div>
